@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/iReporter/UI/style.css" rel="stylesheet" type="text/css">
+        <title>Sign In Page</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="/iReporter/UI/index.html">Home</a></li>
+                    <li><a href="/iReporter/UI/records.html">Edit Records</a></li>
+                    <li><a href="/iReporter/UI/usignup.html">Sign Up Here!</a></li>
+                    <li> <a href="/iReporter/UI/admin.html">Admin</a></li>  
+                </ul>
+            </nav>
+        </header>
+    <form method="POST" action="action.php">
+        <div class="user">
+            <h1>iReporter Sign In</h1>
+
+            <label>Username</label>
+            <input type="text" placeholder="Username" name="username" value=""><br><br>
+            <label>Password</label>
+            <input type="password" placeholder="Password" name="password" value=""><br>
+            <input type="checkbox" checked="checked"> Remember me<br><br>
+            <input type="submit" value="Login">
+            <p>Dont have an account?</p>
+            <a href="/iReporter/UI/usignup.html">Sign Up</a>
+        </div> 
+        </form>
+        <p>Forgot your password? <u>Click Here!</u></p>
+        <footer>
+            @IssaTech Creations.
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/iReporter/UI/style.css" rel="stylesheet" type="text/css">
+        <title>Report Your Red-Flag Here!</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="/iReporter/UI/index.html">Home</a></li>
+                    <li><a href="/iReporter/UI/records.html">Edit Records</a></li>
+                    <li><a href="/iReporter/UI/usignup.html">Sign Up Here!</a></li>
+                    <li> <a href="/iReporter/UI/admin.html">Admin</a></li>
+                </ul>
+            </nav>
+            
+        </header>
+        <form action="action.php" method="POST">
+            <centre>
+                <label>Record your Red-Flag here!<br></label>
+                <textarea name="redflag" rows="10" cols="100" required></textarea><br><br>
+                <p>You can also upload an image and/or video to support your claims</p><br>
+                <input type="file" name="photo" accept="file_extension|video/*|image/*|media_type"><br>
+                <input type="submit"> 
+   
+            </centre>
+        </form>
+        <footer>
+            @IssaTech Creations.
+        </footer>
+    </body>
+</html>
