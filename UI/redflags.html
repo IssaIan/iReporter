@@ -17,20 +17,40 @@
             </nav>
             
         </header>
-        <form action="action.php" method="POST">
-            <centre>
-                <label>Record your Red-Flag here!<br></label>
-                <textarea name="redflag" rows="10" cols="100" required></textarea><br><br>
-                <p>You can also upload an image and/or video to support your claims</p><br>
-                <input type="file" name="photo" accept="file_extension|video/*|image/*|media_type"><br>
-                <label for="geolocation">Add Geolocation</label>
-                <input id="geo" type="button" value="geolocation" onclick="geoLocation()">
-                <input type="submit"> 
-                <input type="submit"> 
-   
-            </centre>
-        </form>
-     
+        <div class="record-form">
+            <p class="sign" align="center"> Create New Red Flag</p>
+            <form class="flag-form" onsubmit="reload()">
+                <div class="form-group">
+                    <label class="form-item" for="username"> <strong> Title: </strong> </label><br>
+                    <input class="username" type="text" align="center" placeholder="Enter red flag title" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-item" for="description"> <strong>Description:</strong> </label><br>
+                    <input class="username" type="text" align="center" placeholder="Describe your case" required> 
+                </div>
+                <div class="form-group">
+                    <label class="form-item" for="image"> <strong>Image:</strong> </label><br>
+                    <input class="username" type="file" align="center" placeholder="Upload image" accept="image/*"> 
+                </div>
+                <div class="form-group">
+                    <label class="form-item" for="video"> <strong>Video:</strong> </label><br>
+                    <input class="username" type="file" align="center" accept="video/*" > 
+                </div>
+                <div class="form-group" id="map">
+                    <label class="form-item "for="geolocation"><strong>Add Geolocation</strong></label>
+                    <input id="geo" value="geolocation" onclick="geoLocation()">
+                </div>
+                <a class="submit" align="center">Submit</a>
+                <p class="forgot" align="center"><a href="#">New Intervention?</a></p>
+            </form>
+    
+    
+    </div>
+    <footer>
+        <p><centre> @issa
+        </centre>
+        </p>
+    </footer>
     </body>
     <script src="/iReport/UI/scripts.js"></script>
 </html>

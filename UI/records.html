@@ -20,23 +20,32 @@
         <p>These are the red-flags and interventions you have submitted.<br>
             You can edit them here.        
         </p>
-        <table align="centre" border="1px" style="width:300px; line-height: 30px; ">
-                <tr>
-                    <th colspan="2"><h2>User Records</h2></th>
-                </tr>
-                <t>
-                    <th>User Name</th>
-                    <th>Record</th>  
-                </t>
-            </table>
-    
-        <form action="" method="POST">
-            <centre>
-              <label>New Edit</label>
-                  <input type="text" placeholder="New Edit" name="newedit" required><br><br>
-                  <input type="Submit" name="Submit " value="Edit Record">
-             </centre>
-       </form>
+        <div class="record-form">
+            <p class="sign" align="center"> Edit</p>
+            <form class="flag-form" onsubmit="reload()">
+                <div class="form-group">
+                    <label class="form-item" for="username"> <strong> Title: </strong> </label><br>
+                    <input class="username" type="text" align="center" placeholder="Enter red flag title" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-item" for="description"> <strong>Description:</strong> </label><br>
+                    <input class="username" type="text" align="center" placeholder="Describe your case" required> 
+                </div>
+                <div class="form-group">
+                    <label class="form-item" for="image"> <strong>Image:</strong> </label><br>
+                    <input class="username" type="file" align="center" placeholder="Upload image" required> 
+                </div>
+                <div class="form-group">
+                    <label class="form-item" for="video"> <strong>Video:</strong> </label><br>
+                    <input class="username" type="file" align="center" placeholder="Describe your case" required> 
+                </div>
+                <div class="form-group" id="map">
+                    <label class="form-item" for="map"> <strong>map:</strong> </label><br>
+                    <input class="username" type="text" align="center" placeholder="Enter longitude and latitude " required> 
+                </div>
+                <a class="submit" align="center">Submit</a>
+                <p class="forgot" align="center"><a href="#">New Intervention?</a></p>
+    </form>
     
     </body>
 </html>
