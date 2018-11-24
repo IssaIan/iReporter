@@ -52,7 +52,8 @@ textarea{
     border: 2px rebeccapurple solid;
 }
 footer{
+    color: aliceblue;
     text-align: center;
     padding: 30px;
-    background-color: aqua;
+    background-color:black;
 }
