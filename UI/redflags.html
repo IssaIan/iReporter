@@ -11,7 +11,6 @@
             <nav>
                 <ul>
                     <li><a href="/iReporter/UI/index.html">Home</a></li>
-                    <li><a href="/iReporter/UI/records.html">Edit Records</a></li>
                     <li><a href="/iReporter/UI/usignup.html">Sign Up Here!</a></li>
                     <li> <a href="/iReporter/UI/admin.html">Admin</a></li>
                 </ul>
@@ -24,6 +23,9 @@
                 <textarea name="redflag" rows="10" cols="100" required></textarea><br><br>
                 <p>You can also upload an image and/or video to support your claims</p><br>
                 <input type="file" name="photo" accept="file_extension|video/*|image/*|media_type"><br>
+                <label for="geolocation">Add Geolocation</label>
+                <input id="geo" type="button" value="geolocation" onclick="geoLocation()">
+                <input type="submit"> 
                 <input type="submit"> 
    
             </centre>
