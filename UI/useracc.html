@@ -21,23 +21,29 @@
             These are the red-flags and interventions you have submitted.<br>
                 You can edit them here.        
         </p><br>
-        <table align="centre" border="1px" style="width:300px; line-height: 30px; ">
-            <tr>
-                <th colspan="2"><h2>User Records</h2></th>
-            </tr>
-            <t>
-                <th>User Name</th>
-                <th>Record</th>  
-            </t>
-        </table>
+        <div style="overflow-x:auto;">
+            <table align="centre" border="1px" style="width:100%; line-height: 30px; ">
+                <tr>
+                    <th colspan="2"><h2>User Records</h2></th>
+                </tr>
+                <t>
+                    <th>User Name</th>
+                    <th>Record</th>  
+                </t>
+            </table>
+        </div>
 
     <form action="" method="POST">
         <centre>
-          <label>New Edit</label>
-              <input type="text" placeholder="New Edit" name="newedit" required><br><br>
-              <input type="Submit" name="Submit " value="Edit Record">
+        <label>New Edit</label>
+            <input type="text" placeholder="New Edit" name="newedit" required><br><br>
+            <input type="Submit" name="Submit " value="Edit Record">
+        <label>Delete Here!</label>
+            <input type="button" name="Delete" value="Delete Record">
+        
          </centre>
    </form>
+
 
 <footer>
     @IssaTech Creations.
