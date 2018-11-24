@@ -21,7 +21,7 @@
 
         <form action="" method="POST">
             <centre>
-                    <table align="centre" border="1px" style="width:300px; line-height: 30px; ">
+                    <table align="centre" border="1px" style="width:100%; line-height: 30px; ">
                             <tr>
                                 <th colspan="2"><h2>User Records</h2></th>
                             </tr>
@@ -33,6 +33,11 @@
                 
               <label>New Status</label>
                   <input type="text" placeholder="New Status" name="newstatus" required><br><br>
+                  <select name="status">
+                        <option value="Investigation">Investigation</option>
+                        <option value="Rejected">Rejected</option>
+                        <option value="Accepted">Accepted</option>
+                      </select> 
                   <input type="Submit" name="Submit " value="Edit Record">
              </centre>
        </form>
