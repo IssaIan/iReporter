@@ -1,4 +1,4 @@
-<!doctype html>
+!doctype html>
 <html>
     <head>
         <meta charset = "UTF-8">
@@ -11,26 +11,24 @@
             <nav>
                 <ul>
                     <li><a href="/iReporter/UI/index.html">Home</a></li>
+                    <li><a href="/iReporter/UI/records.html">Edit Records</a></li>
                     <li><a href="/iReporter/UI/usignup.html">Sign Up Here!</a></li>
                     <li> <a href="/iReporter/UI/admin.html">Admin</a></li>
                 </ul>
             </nav>
-            
         </header>
         <form action="action.php" method="POST">
-            <centre>
-                <label>Record your Red-Flag here!<br></label>
-                <textarea name="redflag" rows="10" cols="100" required></textarea><br><br>
-                <p>You can also upload an image and/or video to support your claims</p><br>
-                <input type="file" name="photo" accept="file_extension|video/*|image/*|media_type"><br>
-                <label for="geolocation">Add Geolocation</label>
-                <input id="geo" type="button" value="geolocation" onclick="geoLocation()">
-                <input type="submit"> 
-                <input type="submit"> 
-   
-            </centre>
+        <centre>
+            <label>Record your Interventions here!<br></label>
+            <textarea name="redflag" rows="10" cols="100" required></textarea><br><br>
+            <p>You can also upload an image and/or video to support your claims</p><br>
+            <input type="file" name="multimedia" accept="file_extension|video/*|image/*|media_type"><br>
+            <label for="geolocation">Add Geolocation</label>
+            <input id="geo" type="button" value="geolocation" onclick="geoLocation()">
+            <input type="submit"> 
+        </centre>
         </form>
-     
+        
     </body>
     <script src="/iReport/UI/scripts.js"></script>
 </html>
