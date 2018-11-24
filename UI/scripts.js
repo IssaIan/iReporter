@@ -1,5 +1,5 @@
 // geoloctaion api
-var x = document.getElementById("demo");
+var x = document.getElementById("geo");
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
