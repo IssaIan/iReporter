@@ -1,9 +1,0 @@
-_pycache_/
-.pytest_cache
-env/*
-.vscode/
-*.pyc
-.coverage/
-*$py.class
-*.py[cod]
-
