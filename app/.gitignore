@@ -1,5 +1,6 @@
-_pycache_/*
+_pycache_
+.pytest_cache
 env/*
 .vscode/
-*pyc
+*.pyc
 .coverage/
