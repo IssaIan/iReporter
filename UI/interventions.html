@@ -1,4 +1,4 @@
-!doctype html>
+<!doctype html>
 <html>
     <head>
         <meta charset = "UTF-8">
@@ -8,27 +8,46 @@
     </head>
     <body>
         <header>
-            <nav>
+            <nav class="navbar">
+                <span class="navbar-toggle" id="navbar-toggle">
+                    <i class="fas fa-bars"></i>
+                </span>
+                <a href="#" class="navbar-brand">iReporter</a>
                 <ul>
-                    <li><a href="/iReporter/UI/index.html">Home</a></li>
-                    <li><a href="/iReporter/UI/records.html">Edit Records</a></li>
-                    <li><a href="/iReporter/UI/usignup.html">Sign Up Here!</a></li>
-                    <li> <a href="/iReporter/UI/admin.html">Admin</a></li>
+                    <li><a href="/iReporter/UI/index.html" class="navbar-link"><i class="fas fa-lock"></i> &nbsp; Home</a></li>
+                    <li> <a href="/iReporter/UI/admin.html" class="navbar-link"><i class="fas fa-lock"></i> &nbsp; Admin</a></li>
                 </ul>
             </nav>
         </header>
-        <form action="action.php" method="POST">
-        <centre>
-            <label>Record your Interventions here!<br></label>
-            <textarea name="redflag" rows="10" cols="100" required></textarea><br><br>
-            <p>You can also upload an image and/or video to support your claims</p><br>
-            <input type="file" name="multimedia" accept="file_extension|video/*|image/*|media_type"><br>
-            <label for="geolocation">Add Geolocation</label>
-            <input id="geo" type="button" value="geolocation" onclick="geoLocation()">
-            <input type="submit"> 
+        <div class="record-form">
+            <p class="sign" align="center"> Create New Intervention</p>
+            <form class="flag-form" onsubmit="reload()">
+                <div class="form-group">
+                    <label class="form-item" for="username"> <strong> Title: </strong> </label><br>
+                    <input class="username" type="text" align="center" placeholder="Enter red flag title" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-item" for="description"> <strong>Description:</strong> </label><br>
+                    <input class="username" type="text" align="center" placeholder="Describe your case" required> 
+                </div>
+                <div class="form-group">
+                    <label class="form-item" for="image"> <strong>Image:</strong> </label><br>
+                    <input class="username" type="file" align="center" placeholder="Upload image" accept="image/*"> 
+                </div>
+                <div>
+                        <button onclick="getLocation()">Geolocate</button>
+                </div>
+                <input type="submit" value="interventions">
+                
+            </form>
+    
+    
+    </div>
+    <footer>
+        <p><centre> @issa
         </centre>
-        </form>
-        
+        </p>
+    </footer>
     </body>
     <script src="/iReport/UI/scripts.js"></script>
 </html>

@@ -7,36 +7,48 @@
         <title>Sign in page</title>
     </head>
     <body>
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="/iReporter/UI/index.html">Home</a></li>
-                    <li><a href="/iReporter/UI/.html">Edit Records</a></li>
-                    <li><a href="/iReporter/UI/usignup.html">Sign Up Here!</a></li>
-                    <li> <a href="/iReporter/UI/admin.html">Admin</a></li>
-                </ul>
-            </nav>
-        </header>
+            <header>
+                    <nav class="navbar">
+                        <span class="navbar-toggle" id="navbar-toggle">
+                            <i class="fas fa-bars"></i>
+                        </span>
+                        <a href="#" class="navbar-brand">iReporter</a>
+                        <ul>
+                            <li><a href="/iReporter/UI/index.html" class="navbar-link"><i class="fas fa-lock"></i> &nbsp; Home</a></li>
+                            <li> <a href="/iReporter/UI/usignup.html" class="navbar-link"><i class="fas fa-lock"></i> &nbsp; Sign Up</a></li>
+                            <li> <a href="/iReporter/UI/admin.html" class="navbar-link"><i class="fas fa-lock"></i> &nbsp; Admin</a></li>
+                        </ul>
+                    </nav>
+            </header>
         <p>These are the red-flags and interventions you have submitted.<br>
             You can edit them here.        
         </p>
-        <table align="centre" border="1px" style="width:300px; line-height: 30px; ">
-                <tr>
-                    <th colspan="2"><h2>User Records</h2></th>
-                </tr>
-                <t>
-                    <th>User Name</th>
-                    <th>Record</th>  
-                </t>
-            </table>
-    
-        <form action="" method="POST">
-            <centre>
-              <label>New Edit</label>
-                  <input type="text" placeholder="New Edit" name="newedit" required><br><br>
-                  <input type="Submit" name="Submit " value="Edit Record">
-             </centre>
-       </form>
+        <div class="record-form">
+            <p class="sign" align="center"> Edit</p>
+            <form class="flag-form" onsubmit="reload()">
+                <div class="form-group">
+                    <label class="form-item" for="username"> <strong> Title: </strong> </label><br>
+                    <input class="username" type="text" align="center" placeholder="Enter red flag title" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-item" for="description"> <strong>Description:</strong> </label><br>
+                    <input class="username" type="text" align="center" placeholder="Describe your case" required> 
+                </div>
+                <div class="form-group">
+                    <label class="form-item" for="image"> <strong>Image:</strong> </label><br>
+                    <input class="username" type="file" align="center" placeholder="Upload image" required> 
+                </div>
+                <div class="form-group">
+                    <label class="form-item" for="video"> <strong>Video:</strong> </label><br>
+                    <input class="username" type="file" align="center" placeholder="Describe your case" required> 
+                </div>
+                <div>
+                    <button onclick="getLocation()">Geolocate</button>
+                </div>
+                <input type="submit" value="Submit">
+              
+            </form>
     
     </body>
+    <script src="/iReporter/UI/scripts.js"></script>
 </html>
