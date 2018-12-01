@@ -22,18 +22,30 @@ class User(Resource):
             'data' : user
             }, 200 
 
+    def patch(self, user_id):
+        data = request.get_json()
+        user = self.db.find(user_id)
+        if user:
+            user.update(data)
+            return {'Message' : 'Successfully updated',
+                    'data' : user
+                    }, 200
+        else:
+            return self.notFound()
+
 class Users(Resource):
 
     def __init__(self):
         self.db = UserModels()
+
+    def notFound(self):
+        return {'Message' : 'Record not found'},404
 
     def get(self):
         return{
             'Message': 'Users returned successfully',
             'data': self.db.all()
             }, 200 
-        
-             
 
     def post(self):
         data = request.get_json()
