@@ -39,19 +39,34 @@ class TestIncidents(unittest.TestCase):
 		self.assertEqual(result['Message'], 'Incidents returned successfully')
 		self.assertEqual(response.status_code, 200)
 
-	# def test_delete_incident(self):
-	# 	response = self.app.delete('/api/v1/incidents/1')
-	# 	result = json.loads(response.data)
-	# 	self.assertEqual(result['message'], 'Successful deletion')
-	# 	self.assertEqual(response.status_code, 200)
+	def test_update_incident(self):
+		self.app.post('/api/v1/incidents', json = self.new_test_incident)
+		response = self.app.patch('/api/v1/incidents/1', json ={
+					'description' : 'Collection of bribes in CITY HALL'})
+		
+		self.assertEqual(response.status_code, 200)
+		
 
-	# def test_update_incident(self):
-	# 	self.app.post('/api/v1/incidents', data=json.dumps(self.new_test_incident), content_type='application/json')
-	# 	self.app.post('/api/v1/incidents', data=json.dumps(self.new_test_incident), content_type='application/json')
-	# 	response = self.app.patch(('/api/v1/incidents/1'))
-	# 	result = json.loads(response.data)
-	# 	self.assertEqual(result['Message'], 'Successfully updated')
-	# 	self.assertEqual(result.status_code, 201)
+	
+class TestdeleteIncident(unittest.TestCase):
+	def setUp(self):
+	
+		app.testing = True
+		self.app = app.test_client()
+		self.new_test_incident = {
+					'type' : 'red flag',
+					'title' : 'mine',
+					'status' : 'Under-investigation',
+					'description' : 'Collection of bribes in the KRA building',
+					'images' : [],
+					'videos' : []
+					}
+
+	def test_delete_incident(self):
+		self.app.post('/api/v1/incidents', json = self.new_test_incident)
+		response = self.app.delete('/api/v1/incidents/1')
+		self.assertEqual({'message' : 'Successful deletion'}, response.get_json())
+		self.assertEqual(response.status_code, 200)
 
 
 
