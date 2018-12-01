@@ -1,7 +1,4 @@
 
-from werkzeug.exceptions import BadRequest
-
-
 incidents = []
 users = []
 
@@ -50,7 +47,7 @@ class UserModels():
         for user in self.users:
             if user['id'] == id:
                 return user
-                
+
     def __generate_id(self):
         if len(self.users):
             return self.users[-1]['id'] + 1
