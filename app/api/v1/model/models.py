@@ -1,3 +1,7 @@
+
+from werkzeug.exceptions import BadRequest
+
+
 incidents = []
 users = []
 
@@ -14,14 +18,16 @@ class Models():
 
     def find(self, id):
         for incident in self.incidents:
-            if incident.values()[-1] == id:
-                return incident
-           
-        
+            if incident['id'] == id:
+                return incident     
+
+
     def erase(self, id):
         incident = self.find(id)
-        self.incidents.remove(incident)
-        return True
+        if incident:
+            self.incidents.remove(incident)
+            return True
+        
 
     def __generate_id(self):
         if len(self.incidents):
@@ -42,10 +48,9 @@ class UserModels():
     
     def find(self, id):
         for user in self.users:
-            if user.values()[-1] == id:
+            if user['id'] == id:
                 return user
-            else:
-                return None
+                
     def __generate_id(self):
         if len(self.users):
             return self.users[-1]['id'] + 1
