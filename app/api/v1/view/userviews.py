@@ -18,7 +18,7 @@ class User(Resource):
             return self.notFound()
 
         return {
-            'Message' : 'The specific user has been returned',
+            'Message' : 'The specific user has been returned successfully',
             'data' : user
             }, 200 
 

@@ -6,6 +6,7 @@ from app.api.v1.model.models import Models
 parser = reqparse.RequestParser()
 parser.add_argument(
     "title", type= str, required = True, help= "Title field is required"
+    ""
 )
 
 class Incident(Resource):
@@ -22,7 +23,9 @@ class Incident(Resource):
         if not incident:
             return self.notFound()
         else:
-            return incident, 200
+            return {'Message' : 'The specific incident has been returned successfully',
+                    'data' : incident
+                    }, 200
         
     def patch(self, incident_id):
         data = request.get_json()
