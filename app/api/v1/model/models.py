@@ -16,16 +16,16 @@ class Models():
     def find(self, id):
         for incident in self.incidents:
             if incident['id'] == id:
-                return incident     
-
+                return incident    
 
     def erase(self, id):
         incident = self.find(id)
-        if incident:
+        if not incident:
+            return None
+        else:
             self.incidents.remove(incident)
-            return True
-        
-
+            return incident
+            
     def __generate_id(self):
         if len(self.incidents):
             return self.incidents[-1]['id'] + 1
