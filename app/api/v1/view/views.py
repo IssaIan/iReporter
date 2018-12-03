@@ -3,14 +3,25 @@ from flask import request
 from app.api.v1.model.models import Models
 
     
-# parser = reqparse.RequestParser()
-# parser.add_argument(
-#     "type", type= str, required = True, help= "Type field is required")
-# parser.add_argument(
-#     "title", type= str, required = True, help= "Title field is required")
-# parser.add_argument(
-#     "description", type= str, required = True, help= "Description field is required")
-# args = parser.parse_args()
+parser = reqparse.RequestParser()
+parser.add_argument(
+    "type", type= str, required = True, help= "Type field is required")
+parser.add_argument(
+    "title", type= str, required = True, help= "Title field is required")
+parser.add_argument(
+    "status", type=str, default= "Draft"
+)
+parser.add_argument(
+    "description", type= str, required = True, help= "Description field is required"
+    )
+parser.add_argument(
+    "location", type= str, required = True, help= "Location field is required")
+parser.add_argument(
+    "images", type= str, required = False)
+parser.add_argument(
+    "videos", type= str, required = False)
+
+
 
 
 class Incident(Resource):
@@ -54,7 +65,7 @@ class Incidents(Resource):
 
     def post(self):
         
-        data = request.get_json()
+        data = parser.parse_args()
 
         incident = {
             'type': data['type'],
@@ -73,12 +84,13 @@ class Location(Resource):
     def __init__(self):
         self.db = Models()
 
-    
     def notFound(self):
         return {'Message' : 'Record not found','status':404},404
     
     def patch(self, incident_id):
-        data = request.get_json()
+
+        data = parser.parse_args()
+
         incident = self.db.find(incident_id)
         if incident:
             for incident['location'] in incident:
@@ -94,13 +106,14 @@ class Location(Resource):
 class Description(Resource):
     def __init__(self):
         self.db = Models()
-
     
     def notFound(self):
         return {'Message' : 'Record not found','status':404},404
     
     def patch(self, incident_id):
-        data = request.get_json()
+
+        data = parser.parse_args()
+
         incident = self.db.find(incident_id)
         if incident:
             for incident['description'] in incident:
