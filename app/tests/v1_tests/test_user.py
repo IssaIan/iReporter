@@ -52,7 +52,15 @@ class TestUsers(unittest.TestCase):
 		self.app.post('/api/v1/users', 
 									json = self.new_test_user,
 									headers={'content-type' : 'application/json'})
-		response = self.app.patch('/api/v1/users/1', json = {'phoneNumber' : '0712345678'})
+		response = self.app.patch('/api/v1/users/1', json =  {
+															'firstname' : 'Issa',
+															'lastname' : 'Mwangi',
+															'othernames' : 'Maina',
+															'email' : 'issamwangi@gmail.com',
+															'phoneNumber' : '0712345678',
+															'username' : 'theonly', 
+															'registered' : '11/28/2018'
+															})
 		self.assertEqual(response.status_code, 200)
 
 
