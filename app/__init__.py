@@ -9,7 +9,6 @@ def create_app(config_name='testing'):
     app.url_map.strict_slashes = False
     app.config.from_object(app_config['testing'])
     app.config.from_pyfile('config.py')
-    create_tables()
     app.register_blueprint(v1)
     return app
 
