@@ -22,14 +22,18 @@ parser.add_argument(
     "videos", type= str, required = False)
 
 
+class GetError():
+    #declare a function notFound() to enble inheritance of the function by other classes
 
-
-class Incident(Resource):
-    def __init__(self):
-        self.db = Models()
-        
     def notFound(self):
         return {'Message' : 'Record not found','status':404},404
+    
+
+class Incident(Resource, GetError):
+    #This class and its members creates an endpoint where only a single incident can be acted upon
+
+    def __init__(self):
+        self.db = Models()
 
     def get(self, incident_id):
         incident = self.db.find(incident_id) 
@@ -48,13 +52,12 @@ class Incident(Resource):
             return {'Message' : 'Successful deletion'}, 200           
 
 
-class Incidents(Resource):
+class Incidents(Resource, GetError):
+    #This class and its members creates an endpoint where only several incidents can be acted upon
+
     def __init__(self):
         self.db = Models()
-    
-    def notFound(self):
-        return {'Message' : 'No records found','status':404},404
-    
+   
     def get(self):
         if self.db.all() == []:
             return self.notFound() 
@@ -80,12 +83,11 @@ class Incidents(Resource):
                 'data' : incident
             }, 201
 
-class Location(Resource):
+class Location(Resource, GetError):
+    #This class and its members creates an endpoint where only a single incident's location can be updated 
+
     def __init__(self):
         self.db = Models()
-
-    def notFound(self):
-        return {'Message' : 'Record not found','status':404},404
     
     def patch(self, incident_id):
 
@@ -103,13 +105,12 @@ class Location(Resource):
        
 
 
-class Description(Resource):
+class Description(Resource, GetError):
+    #This class and its members creates an endpoint where only a single incident's descriptionp can be updated 
+
     def __init__(self):
         self.db = Models()
-    
-    def notFound(self):
-        return {'Message' : 'Record not found','status':404},404
-    
+   
     def patch(self, incident_id):
 
         data = parser.parse_args()

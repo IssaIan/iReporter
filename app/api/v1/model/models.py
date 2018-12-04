@@ -48,6 +48,11 @@ class UserModels():
             if user['id'] == id:
                 return user
 
+    def find_by_username(self, username):
+        for user in self.users:
+            if user['username'] == username:
+                return user
+
     def __generate_id(self):
         if len(self.users):
             return self.users[-1]['id'] + 1
@@ -55,3 +60,8 @@ class UserModels():
             return 1
 
     
+
+        
+        
+
+
