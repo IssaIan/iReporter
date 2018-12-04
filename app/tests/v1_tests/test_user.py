@@ -98,7 +98,7 @@ class TestUsers(unittest.TestCase):
 		self.app.post('/api/v1/users', 
 									json = self.new_test_user,
 									headers={'content-type' : 'application/json'})
-		response = self.app.patch('/api/v1/users/1', json =  {
+		response = self.app.patch('/api/v1/users/theonly', json =  {
 															'firstname' : 'Issa',
 															'lastname' : 'Mwangi',
 															'othernames' : 'Maina',
