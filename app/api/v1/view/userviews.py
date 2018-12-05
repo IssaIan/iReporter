@@ -139,8 +139,22 @@ class Users(Resource, GetError):
             'registered' : data['registered'],
             }
         
-        self.db.save(user)
-        return {
-            'Message' : 'User saved successfully',
-            'data' : user
-            }, 201
+        if data['firstname'] == "" or data['firstname'] == " ":
+            return "Firstname required!"
+        elif data['lastname'] == "" or data['lastname']== " ": 
+            return "lastname required!"
+        elif data['othernames'] == "" or data['othernames']== " ":
+            return "othernames required!"
+        elif data['email'] == "" or data['email']== " ":
+            return "email required!"
+        elif data['password'] == "" or data['password']== " ":
+            return "password required!"
+        elif data['username'] == "" or data['username']== " ":
+            return "Username required!"
+        else:
+                
+            self.db.save(user)
+            return {
+                'Message' : 'User saved successfully',
+                'data' : user
+                }, 201

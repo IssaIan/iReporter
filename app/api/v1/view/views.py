@@ -78,10 +78,17 @@ class Incidents(Resource, GetError):
             'images' : [],
             'videos' : []
             }
-        self.db.save(incident)
-        return {'Message' : 'Incident saved successfully',
-                'data' : incident
-            }, 201
+        if data['type'] == "" or data['type'] == " ":
+            return "Type of incident required!"
+        elif data['title'] == "" or data['title'] == " ":
+            return "Title of incident required!"
+        elif data['description'] == "" or data['description'] == " ":
+            return "Description of incident required!"
+        else:
+            self.db.save(incident)
+            return {'Message' : 'Incident saved successfully',
+                    'data' : incident
+                }, 201
 
 class Location(Resource, GetError):
     #This class and its members creates an endpoint where only a single incident's location can be updated 
