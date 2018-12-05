@@ -1,64 +1,40 @@
 
-incidents = []
-users = []
-
 class Models():
-    def __init__(self):
-        self.incidents = incidents
+    def __init__(self, items):
+        self.items = items
     
     def all(self):
-        return self.incidents
+        return self.items
 
     def save(self, data):
         data['id'] = self.__generate_id()
-        self.incidents.append(data)
+        self.items.append(data)
 
     def find(self, id):
-        for incident in self.incidents:
-            if incident['id'] == id:
-                return incident    
+        for item in self.items:
+            if item['id'] == id:
+                return item    
 
     def erase(self, id):
-        incident = self.find(id)
-        if not incident:
+        item = self.find(id)
+        if not item:
             return None
         else:
-            self.incidents.remove(incident)
-            return incident
+            self.items.remove(item)
+            return item
             
     def __generate_id(self):
-        if len(self.incidents):
-            return self.incidents[-1]['id'] + 1
+        if len(self.items):
+            return self.items[-1]['id'] + 1
         else:
             return 1
 
-class UserModels():
-    def __init__(self):
-          self.users = users
+    def find_by_username(self, itemname):
+        for item in self.items:
+            if item['username'] == itemname:
+                return item
 
-    def all(self):
-        return self.users
-
-    def save(self, data):
-        data['id'] = self.__generate_id()
-        self.users.append(data) 
     
-    def find(self, id):
-        for user in self.users:
-            if user['id'] == id:
-                return user
-
-    def find_by_username(self, username):
-        for user in self.users:
-            if user['username'] == username:
-                return user
-
-    def __generate_id(self):
-        if len(self.users):
-            return self.users[-1]['id'] + 1
-        else:
-            return 1
-
     
 
         
