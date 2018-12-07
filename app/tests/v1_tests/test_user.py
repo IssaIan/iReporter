@@ -1,7 +1,7 @@
 import unittest
 import json
 from app import create_app
-from app.api.v1.model.models import users
+from app.api.v1.view.userviews import users
 
 
 app = create_app('testing')

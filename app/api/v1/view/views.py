@@ -2,7 +2,8 @@ from flask_restful import Resource, reqparse
 from flask import request
 from app.api.v1.model.models import Models
 
-    
+incidents = []
+
 parser = reqparse.RequestParser()
 parser.add_argument(
     "type", type= str, required = True, help= "Type field is required")
@@ -27,13 +28,21 @@ class GetError():
 
     def notFound(self):
         return {'Message' : 'Record not found','status':404},404
+
+class Incidentbase(Models):
+    #This class initiates a model for storing incidents
+    def __init__(self):
+        # Initializes a the Model class with storage reference of incidents 
+        super().__init__(incidents)
+
+
     
 
 class Incident(Resource, GetError):
     #This class and its members creates an endpoint where only a single incident can be acted upon
 
     def __init__(self):
-        self.db = Models()
+        self.db = Incidentbase()
 
     def get(self, incident_id):
         incident = self.db.find(incident_id) 
@@ -56,7 +65,7 @@ class Incidents(Resource, GetError):
     #This class and its members creates an endpoint where only several incidents can be acted upon
 
     def __init__(self):
-        self.db = Models()
+        self.db = Incidentbase()
    
     def get(self):
         if self.db.all() == []:
@@ -78,16 +87,23 @@ class Incidents(Resource, GetError):
             'images' : [],
             'videos' : []
             }
-        self.db.save(incident)
-        return {'Message' : 'Incident saved successfully',
-                'data' : incident
-            }, 201
+        if data['type'] == "" or data['type'] == " ":
+            return "Type of incident required!"
+        elif data['title'] == "" or data['title'] == " ":
+            return "Title of incident required!"
+        elif data['description'] == "" or data['description'] == " ":
+            return "Description of incident required!"
+        else:
+            self.db.save(incident)
+            return {'Message' : 'Incident saved successfully',
+                    'data' : incident
+                }, 201
 
 class Location(Resource, GetError):
     #This class and its members creates an endpoint where only a single incident's location can be updated 
 
     def __init__(self):
-        self.db = Models()
+        self.db = Incidentbase()
     
     def patch(self, incident_id):
 
@@ -109,7 +125,7 @@ class Description(Resource, GetError):
     #This class and its members creates an endpoint where only a single incident's descriptionp can be updated 
 
     def __init__(self):
-        self.db = Models()
+        self.db = Incidentbase()
    
     def patch(self, incident_id):
 

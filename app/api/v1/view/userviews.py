@@ -1,6 +1,8 @@
 from flask import request
 from flask_restful import Resource, reqparse
-from app.api.v1.model.models import UserModels
+from app.api.v1.model.models import Models
+
+users = [] 
 
 parser = reqparse.RequestParser()
 parser.add_argument(
@@ -28,11 +30,17 @@ class GetError():
     def notFound(self):
         return {'Message' : 'Record not found','status':404},404
 
+class Userbase(Models):
+     #This class initiates a model for storing users
+    def __init__(self):
+        # Initializes a the Model class with storage reference of users
+        super().__init__(users)
+
 
 class User(Resource, GetError): 
     #This class and its members creates an endpoint that acts on one specific User at a time 
     def __init__(self):
-        self.db = UserModels()
+        self.db = Userbase()
 
     def notFound(self):
         return {'Message' : 'Record not found'},404
@@ -64,7 +72,7 @@ class UserbyUsername(Resource, GetError):
     #This class and its functions creates an endpoint that allows login in of users
 
     def __init__(self):
-        self.db = UserModels()
+        self.db = Userbase()
 
     def get(self, user_name):
         user = self.db.find_by_username(user_name)
@@ -115,7 +123,7 @@ class Users(Resource, GetError):
     #This class and its members creates an endpoint that acts on many Users at a time
 
     def __init__(self):
-        self.db = UserModels()
+        self.db = Userbase()
 
     def get(self):
         return{
@@ -139,8 +147,22 @@ class Users(Resource, GetError):
             'registered' : data['registered'],
             }
         
-        self.db.save(user)
-        return {
-            'Message' : 'User saved successfully',
-            'data' : user
-            }, 201
+        if data['firstname'] == "" or data['firstname'] == " ":
+            return "Firstname required!"
+        elif data['lastname'] == "" or data['lastname']== " ": 
+            return "lastname required!"
+        elif data['othernames'] == "" or data['othernames']== " ":
+            return "othernames required!"
+        elif data['email'] == "" or data['email']== " ":
+            return "email required!"
+        elif data['password'] == "" or data['password']== " ":
+            return "password required!"
+        elif data['username'] == "" or data['username']== " ":
+            return "Username required!"
+        else:
+                
+            self.db.save(user)
+            return {
+                'Message' : 'User saved successfully',
+                'data' : user
+                }, 201
