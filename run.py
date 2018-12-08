@@ -1,5 +1,8 @@
 from app import create_app
+from flask import Flask
+
+app = create_app('testing')
+
 
 if __name__ == '__main__':
-    app = create_app('testing')
     app.run(debug=True)

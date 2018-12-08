@@ -1,8 +1,10 @@
 
 class Models():
+    """ This class contains functions that allow requests on both incidents and users """
+
     def __init__(self, items):
         self.items = items
-    
+
     def all(self):
         return self.items
 
@@ -13,7 +15,7 @@ class Models():
     def find(self, id):
         for item in self.items:
             if item['id'] == id:
-                return item    
+                return item
 
     def erase(self, id):
         item = self.find(id)
@@ -22,7 +24,7 @@ class Models():
         else:
             self.items.remove(item)
             return item
-            
+
     def __generate_id(self):
         if len(self.items):
             return self.items[-1]['id'] + 1
@@ -33,11 +35,3 @@ class Models():
         for item in self.items:
             if item['username'] == itemname:
                 return item
-
-    
-    
-
-        
-        
-
-
