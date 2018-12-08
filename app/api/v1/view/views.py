@@ -32,15 +32,15 @@ class GetError():
 
 
 class Incidentbase(Models):
-    # This class initiates a model for storing incidents
+    """ This class initiates a model for storing incidents """
     def __init__(self):
-        # Initializes a the Model class with storage reference of incidents
+        """ Initializes a the Model class with storage reference of incidents """
         super().__init__(incidents)
 
 
 class Incident(Resource, GetError):
-    # This class and its members creates an 
-    # endpoint where only a single incident can be acted upon
+    """ This class and its members creates an 
+    endpoint where only a single incident can be acted upon """
 
     def __init__(self):
         self.db = Incidentbase()
@@ -63,8 +63,8 @@ class Incident(Resource, GetError):
 
 
 class Incidents(Resource, GetError):
-    # This class and its members creates an endpoint 
-    # where only several incidents can be acted upon
+    """ This class and its members creates an endpoint 
+    where only several incidents can be acted upon """
 
     def __init__(self):
         self.db = Incidentbase()
@@ -98,8 +98,8 @@ class Incidents(Resource, GetError):
 
 
 class Location(Resource, GetError):
-    # This class and its members creates an endpoint where 
-    # only a single incident's location can be updated
+    """ This class and its members creates an endpoint where 
+    only a single incident's location can be updated """
 
     def __init__(self):
         self.db = Incidentbase()
@@ -120,8 +120,8 @@ class Location(Resource, GetError):
 
 
 class Description(Resource, GetError):
-    # This class and its members creates an endpoint 
-    # where only a single incident's descriptionp can be updated
+    """ This class and its members creates an endpoint 
+     where only a single incident's descriptionp can be updated """
 
     def __init__(self):
         self.db = Incidentbase()

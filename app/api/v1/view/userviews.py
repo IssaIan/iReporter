@@ -34,7 +34,7 @@ class GetError():
 class Userbase(Models):
     """ This class initiates a model for storing users """
     def __init__(self):
-        """ Initializes a the Model class with storage reference of users """"
+        """ Initializes a the Model class with storage reference of users """
         super().__init__(users)
 
 
